@@ -1,0 +1,196 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #ffe1ed, #ffc5dc, #fff0f6);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #a83c70;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+    padding: 30px 20px;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.page.active {
+    display: flex;
+    animation: appear 0.8s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    margin: 15px;
+    color: #e75491;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    margin: 15px;
+    color: #bd477b;
+}
+
+p {
+    font-size: 1.1rem;
+    margin: 12px;
+    line-height: 1.7;
+}
+
+.cartoon {
+    font-size: 100px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+button {
+    border: none;
+    background: #ff69a4;
+    color: white;
+    padding: 16px 30px;
+    border-radius: 40px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    cursor: pointer;
+    margin: 15px;
+    box-shadow: 0 7px 0 #d84b83;
+    transition: transform 0.2s, background 0.2s;
+}
+
+button:hover {
+    transform: translateY(-4px);
+    background: #ff478e;
+}
+
+button:active {
+    transform: translateY(3px);
+    box-shadow: 0 3px 0 #d84b83;
+}
+
+.letter {
+    background: #fffafd;
+    width: min(90%, 550px);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px #e78ab655;
+    margin: 20px;
+    border: 3px dashed #ff9ac2;
+}
+
+.letter p {
+    color: #8f4567;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+#yesBtn {
+    background: #ff4e98;
+    z-index: 5;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+#noBtn {
+    background: #b8a1ad;
+    box-shadow: 0 7px 0 #89717e;
+}
+
+#noMessage {
+    color: #df4285;
+    font-weight: 900;
+}
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    bottom: -40px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% { opacity: 0.8; }
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.celebration {
+    font-size: 110px;
+}
+
+.explosion {
+    position: fixed;
+    z-index: 20;
+    pointer-events: none;
+    animation: explode 1.2s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4) translateY(-100px);
+        opacity: 0;
+    }
+}
+
+@media(max-width: 600px) {
+    .letter {
+        padding: 20px;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}
